@@ -1,0 +1,179 @@
+{
+  "identifier" : "E9A1B2C3-D4E5-F6A7-B8C9-D0E1F2A3B4C5",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "1",
+    "_developerTeamID" : "",
+    "_failTransactionsEnabled" : false,
+    "_lastVerificationError" : "",
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Message"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "silkroad_pro_group",
+      "localizations" : [
+
+      ],
+      "name" : "SilkRoad Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "399.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "SP_MONTHLY_BASE",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Base platform access - 1 seat",
+              "displayName" : "SilkRoad Pro Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "SilkRoad Monthly Base",
+          "subscriptionGroupID" : "silkroad_pro_group",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "449.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "SP_MONTHLY_1PACK",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Base + 1 seat pack (11 seats)",
+              "displayName" : "SilkRoad Pro Monthly + 1 Pack",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "silkroad_monthly_1pack",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "SilkRoad Monthly 1 Pack",
+          "subscriptionGroupID" : "silkroad_pro_group",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "499.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "SP_MONTHLY_2PACKS",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Base + 2 seat packs (21 seats)",
+              "displayName" : "SilkRoad Pro Monthly + 2 Packs",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "silkroad_monthly_2packs",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "SilkRoad Monthly 2 Packs",
+          "subscriptionGroupID" : "silkroad_pro_group",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "549.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "SP_MONTHLY_3PACKS",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Base + 3 seat packs (31 seats)",
+              "displayName" : "SilkRoad Pro Monthly + 3 Packs",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "silkroad_monthly_3packs",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "SilkRoad Monthly 3 Packs",
+          "subscriptionGroupID" : "silkroad_pro_group",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

@@ -1,0 +1,61 @@
+# Resolve react_native_pods.rb with node to allow for hoisting
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+    "react-native/scripts/react_native_pods.rb",
+    {paths: [process.argv[1]]},
+  )', __dir__]).strip
+
+platform :ios, min_ios_version_supported
+prepare_react_native_project!
+
+# react-native-config: read .env and generate native config
+require_relative '../node_modules/react-native-config/ios/ReactNativeConfig/ReadDotEnv'
+project_root = File.dirname(File.dirname(__FILE__))
+dotenv, _custom_env = read_dot_env(project_root)
+ENV.merge!(dotenv)
+
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+# Fix GTMSessionFetcher version conflict between GoogleSignIn (3.x) and MLKit (1.x)
+# GoogleSignIn 7.0.0 is compatible with GTMSessionFetcher 1.x used by MLKit
+$RNGoogleSigninAsStaticFramework = true
+
+target 'SilkRoad' do
+  config = use_native_modules!
+
+  # Use GoogleSignIn 7.0.0 which is compatible with MLKit's GTMSessionFetcher 1.x requirement
+  pod 'GoogleSignIn', '7.0.0'
+
+  # Google Maps SDK for react-native-maps PROVIDER_GOOGLE
+  pod 'Google-Maps-iOS-Utils', :git => 'https://github.com/googlemaps/google-maps-ios-utils.git', :tag => '6.1.0'
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  # Generate .env config for react-native-config
+  script_phase :name => 'Config codridge react-native-config',
+    :script => %(
+      "${PODS_ROOT}/../../node_modules/react-native-config/ios/ReactNativeConfig/BuildDotenvConfig.rb" "${PODS_ROOT}/../../" "${PODS_ROOT}/../../node_modules/react-native-config/ios/ReactNativeConfig"
+    ),
+    :execution_position => :before_compile
+
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false,
+      # :ccache_enabled => true
+    )
+  end
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  pod 'OneSignalXCFramework', '>= 5.0.0', '< 6.0'
+end
